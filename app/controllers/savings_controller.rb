@@ -59,7 +59,7 @@ class SavingsController < ApplicationController
     end
 
     def saving_params
-      params.require(:saving).permit(:user_id, :name, :amount)
+      params.require(:saving).permit(:author_id, :name, :amount)
     end
   end
 end
