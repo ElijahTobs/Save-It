@@ -6,7 +6,7 @@ class CreateSavings < ActiveRecord::Migration[5.2]
       t.string :name
       t.float :amount
 
-      t.timestamps
+      t.timestamps precision: 6
     end
   end
 end
