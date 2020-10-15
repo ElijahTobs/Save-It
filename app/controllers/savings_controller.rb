@@ -2,7 +2,8 @@ class SavingsController < ApplicationController
   before_action :set_saving, only: [:show, :edit, :update, :destroy]
 
   def index
-    @savings = Saving.all
+    @user = User.find(session[:user_id])
+    @savings = @user.savings.all
   end
 
   def show
