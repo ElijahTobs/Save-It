@@ -15,12 +15,12 @@
   <tbody>
     <% @savingss.each do |saving| %>
       <tr>
-        <td><%= saving.author_id %></td>
+        <td><%= saving.users.name %></td>
         <td><%= saving.name %></td>
         <td><%= saving.amount %></td>
         <td><%= link_to 'Show', saving %></td>
         <td><%= link_to 'Edit', edit_saving_path(saving) %></td>
-        <td><%= link_to 'Destroy', saving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', saving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

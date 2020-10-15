@@ -1,7 +1,9 @@
 <%= form_with(model: saving, local: true) do |form| %>
   <% if saving.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(saving.errors.count, "error") %> prohibited this saving from being saved:</h2>
+      <h2>
+        <%= pluralize(saving.errors.count, "error") %> prohibited this saving from being saved:
+      </h2>
 
       <ul>
         <% saving.errors.full_messages.each do |message| %>
@@ -16,16 +18,17 @@
   </div>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, value: 'Description of the expense' %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <%= form.number_field :amount %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+  
 <% end %>
