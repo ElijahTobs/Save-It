@@ -2,12 +2,16 @@
 
 <h1>Savingss</h1>
 
+<h1>All <%= session[:user_name]%>'s Savings</h1>
+<h2>Grand total for savings: $<%= @savings.sum(:amount) %></h2>
+
 <table>
   <thead>
     <tr>
       <th>Author</th>
-      <th>Name</th>
+      <th>Saving Description</th>
       <th>Amount</th>
+      <th>Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +22,7 @@
         <td><%= saving.users.name %></td>
         <td><%= saving.name %></td>
         <td><%= saving.amount %></td>
+        <td><%= saving.created_at.strftime('%e-%b-%Y') %></td>
         <td><%= link_to 'Show', saving %></td>
         <td><%= link_to 'Edit', edit_saving_path(saving) %></td>
         <td><%= link_to 'Delete', saving, method: :delete, data: { confirm: 'Are you sure?' } %></td>

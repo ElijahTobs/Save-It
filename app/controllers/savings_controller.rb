@@ -3,7 +3,7 @@ class SavingsController < ApplicationController
 
   def index
     @user = User.find(session[:user_id])
-    @savings = @user.savings.all
+    @savings = @user.savings.all.ordered_by_most_recent
   end
 
   def show
