@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/access', to: 'access_control#signin'
   delete '/access', to: 'access_control#logout'
 
-  get '/mytransactions', to: 'expenses#index'
+  get '/mysavings', to: 'savings#index'
   
 
   resources :savings
