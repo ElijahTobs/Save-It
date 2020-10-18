@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    @groups = Group.all.ordered_by_name
   end
 
   # GET /groups/1
@@ -31,3 +31,7 @@ class GroupsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+end

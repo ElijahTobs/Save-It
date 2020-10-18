@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete '/access', to: 'access_control#logout'
 
   get '/mysavings', to: 'savings#index'
+  get '/groups', to: 'groups#index'
   
 
   resources :savings
