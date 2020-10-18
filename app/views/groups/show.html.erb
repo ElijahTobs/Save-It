@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @group.creator.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @group.icon %>
+</p>
+
+<h1>Savings for this group</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Saving Description</th>
+      <th>Creation Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group_savings.each do |saving| %>
+      <tr>
+        <td><%= saving.name %></td>
+        <td><%= saving.created_at.strftime('%e-%b-%Y') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Create new saving for the group', "/savings/new/#{@group.id}" %>
+<br>
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

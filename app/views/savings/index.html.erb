@@ -19,7 +19,7 @@
   <tbody>
     <% @savingss.each do |saving| %>
       <tr>
-        <td><%= saving.users.name %></td>
+        <td><%= saving.author.name %></td>
         <td><%= saving.name %></td>
         <td><%= saving.amount %></td>
         <td><%= saving.created_at.strftime('%e-%b-%Y') %></td>
