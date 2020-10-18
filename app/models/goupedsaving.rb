@@ -1,0 +1,2 @@
+class Goupedsaving < ApplicationRecord
+end
