@@ -3,4 +3,5 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :savings, foreign_key: 'author_id', class_name: 'Saving'
+  has_many :groups, foreign_key: 'creator_id', class_name: 'Group'
 end
