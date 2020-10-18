@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Savingss</h1>
+<h1>Savings</h1>
 
-<h1>All <%= session[:user_name]%>'s Savings</h1>
+<h2>All <%= session[:user_name]%>'s Savings</h2>
 <h2>Grand total for savings: $<%= @savings.sum(:amount) %></h2>
 
 <table>
