@@ -12,6 +12,7 @@ class SavingsController < ApplicationController
 
   def new
     @saving = Saving.new
+    @group = params[:group]
   end
 
   def edit
@@ -23,10 +24,13 @@ class SavingsController < ApplicationController
 
     respond_to do |format|
       if @saving.save
-        format.html { redirect_to @saving, notice: 'Saving was successfully created.' }
+        unless group_param[:group_id].to_i.zero?
+          Groupedtransaction.create(saving_id: @saving.id, group_id: group_param[:group_id])
+        end
+        format.html { redirect_to savings_path, notice: 'Saving was successfully created.' }
         format.json { render :show, status: :created, location: @saving }
       else
-        format.html { render :new }
+        format.html { redirect_to "/saving  s/new/#{group_param[:group_id]}", alert: 'All the fields must be filled' }
         format.json { render json: @saving.errors, status: :unprocessable_entity }
       end
     end
@@ -51,15 +55,20 @@ class SavingsController < ApplicationController
 
       format.html { redirect_to savings_url, notice: 'Saving was successfully destroyed.' }
       format.json { head :no_content }
+    end
   end
 
   private
-    def set_saving
-      @saving = Saving.find(params[:id])
-    end
 
-    def saving_params
-      params.require(:saving).permit(:author_id, :name, :amount)
-    end
+  def set_saving
+    @saving = Saving.find(params[:id])
+  end
+
+  def saving_params
+    params.require(:saving).permit(:author_id, :name, :amount)
+  end
+
+  def group_param
+    params.require(:expense).permit(:group_id)
   end
 end

@@ -1,10 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Savings</h1>
-
-<h2>All <%= session[:user_name]%>'s Savings</h2>
+<h1>All <%= session[:user_name]%>'s Savings</h1>
 <h2>Grand total for savings: $<%= @savings.sum(:amount) %></h2>
-
 <table>
   <thead>
     <tr>
@@ -18,7 +15,7 @@
 
   <tbody>
     <% @savings.each do |saving| %>
-      <tr>
+      <tr>  
         <td><%= saving.author.name %></td>
         <td><%= saving.name %></td>
         <td><%= saving.amount %></td>
@@ -33,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Saving', new_saving_path %>
+<%= link_to 'New Saving', '/savings/new/0' %>

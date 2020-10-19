@@ -5,7 +5,7 @@ class CreateGroups < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :icon
 
-      t.timestamps
+      t.timestamps precision: 6
     end
   end
 end

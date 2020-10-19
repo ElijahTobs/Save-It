@@ -18,16 +18,16 @@ ActiveRecord::Schema.define(version: 2020_10_18_174835) do
   create_table "goupedsavings", force: :cascade do |t|
     t.integer "group_id"
     t.integer "expense_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "groups", force: :cascade do |t|
     t.integer "creator_id"
     t.string "name"
     t.string "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "savings", force: :cascade do |t|

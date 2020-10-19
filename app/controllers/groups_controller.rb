@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group_expenses = @group.expenses.ordered_by_most_recent
+    @group_savings = @group.savings.ordered_by_most_recent
   end
 
   def new
