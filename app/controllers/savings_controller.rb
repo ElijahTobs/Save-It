@@ -69,6 +69,6 @@ class SavingsController < ApplicationController
   end
 
   def group_param
-    params.require(:expense).permit(:group_id)
+    params.require(:saving).permit(:group_id)
   end
 end

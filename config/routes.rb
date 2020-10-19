@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   delete '/access', to: 'access_control#logout'
 
   get '/mysavings', to: 'savings#index'
-  # get '/groups', to: 'groups#index'
+  get '/groups', to: 'groups#index'
+  # get '/groups/new', to: 'groups#new'
 
   
 
-  resources :savings
-  resources :users
+  resources :groups, except: [:update]
+  resources :savings, except: [:update]
+  resources :users, except: [:update, :edit]
 end
