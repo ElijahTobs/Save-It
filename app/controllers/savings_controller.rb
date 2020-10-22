@@ -1,74 +1,76 @@
 class SavingsController < ApplicationController
-  before_action :set_saving, only: [:show, :edit, :update, :destroy]
+  before_action :set_saving, only: %i[show edit update destroy]
+  before_action :check_login
 
+  # GET /savings
+  # GET /savings.json
+  def my_external
+    @user = User.includes(:savings, :groups).find(session[:user_id])
+    @savings = @user.savings.includes(:groups, :author).stand_alone_savings.ordered_by_most_recent
+    render 'index'
+  end
+
+  # /mytransactions
   def index
-    @user = User.find(session[:user_id])
-    @savings = @user.savings.all.ordered_by_most_recent
+    @user = User.includes(:savings, :groups).find(session[:user_id])
+    @savings = @user.savings.includes(:groups, :author).ordered_by_most_recent
   end
 
-  def show
-    
-  end
+  # GET /savings/1
+  # GET /savings/1.json
+  def show; end
 
+  # GET /savings/new
   def new
     @saving = Saving.new
     @group = params[:group]
   end
 
-  def edit
-    
-  end
-
+  # POST /savings
+  # POST /savings.json
   def create
     @saving = Saving.new(saving_params)
-
     respond_to do |format|
       if @saving.save
         unless group_param[:group_id].to_i.zero?
           Groupedtransaction.create(saving_id: @saving.id, group_id: group_param[:group_id])
         end
         format.html { redirect_to savings_path, notice: 'Saving was successfully created.' }
-        format.json { render :show, status: :created, location: @saving }
       else
-        format.html { redirect_to "/saving  s/new/#{group_param[:group_id]}", alert: 'All the fields must be filled' }
-        format.json { render json: @saving.errors, status: :unprocessable_entity }
+        format.html { redirect_to "/savings/new/#{group_param[:group_id]}", alert: @saving.errors.full_messages }
       end
     end
   end
 
-  def update
-    respond_to do |format|
-
-      if @saving.update(saving_params)
-        format.html { redirect_to @saving, notice: 'Saving was successfully updated.' }
-        format.json { render :show, status: :ok, location: @saving }
-      else
-        format.html { render :edit }
-        format.json { render json: @saving.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
+  # DELETE /savings/1
+  # DELETE /savings/1.json
   def destroy
-    @saving.delete
     respond_to do |format|
-
-      format.html { redirect_to savings_url, notice: 'Saving was successfully deleted.' }
-      format.json { head :no_content }
+      if @saving.destroy
+        format.html { redirect_to savings_url, notice: 'Saving was successfully destroyed.' }
+      else
+        format.html { redirect_to savings_url, notice: "Saving couldn't be destroyed." }
+      end
     end
   end
 
   private
 
+  # Use callbacks to share common setup or constraints between actions.
   def set_saving
     @saving = Saving.find(params[:id])
   end
 
+  # Only allow a list of trusted parameters through.
   def saving_params
     params.require(:saving).permit(:author_id, :name, :amount)
   end
 
   def group_param
     params.require(:saving).permit(:group_id)
+  end
+
+  def check_login
+    redirect_to root_path if session[:user_name].nil?
   end
 end

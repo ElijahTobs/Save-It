@@ -3,10 +3,12 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all.ordered_by_name
+    @group_savings = @groups.savings.ordered_by_most_recent
   end
 
   def show
-    @group_savings = @group.savings.ordered_by_most_recent
+    
+    # @group_savings = @groups.savings.ordered_by_most_recent
   end
 
   def new
@@ -44,7 +46,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+      format.html { redirect_to groups_url, notice: 'Group was successfully deleted.' }
       format.json { head :no_content }
     end
   end
