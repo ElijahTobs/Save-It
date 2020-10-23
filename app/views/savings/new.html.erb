@@ -1,5 +1,9 @@
-<h1>New Saving</h1>
+<%= link_to expenses_path do %>
+  <span class="small-button back-button font-light-blue"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></span>
+<% end %>
 
-<%= render 'form', saving: @saving %>
+<div class="banner">
+  <h1 class="font-light-blue">New Expense</h1>
+</div>
 
-<%= link_to 'Back', savings_path %>
+<%= render 'form', expense: @expense %>
