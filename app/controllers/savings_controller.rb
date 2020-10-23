@@ -33,7 +33,7 @@ class SavingsController < ApplicationController
     respond_to do |format|
       if @saving.save
         unless group_param[:group_id].to_i.zero?
-          Groupedtransaction.create(saving_id: @saving.id, group_id: group_param[:group_id])
+          Groupedsaving.create(saving_id: @saving.id, group_id: group_param[:group_id])
         end
         format.html { redirect_to savings_path, notice: 'Saving was successfully created.' }
       else
