@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 2020_10_18_174835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "goupedsavings", force: :cascade do |t|
+  create_table "groupedsavings", force: :cascade do |t|
     t.integer "group_id"
-    t.integer "expense_id"
+    t.integer "saving_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

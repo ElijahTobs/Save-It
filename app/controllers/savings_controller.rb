@@ -47,9 +47,9 @@ class SavingsController < ApplicationController
   def destroy
     respond_to do |format|
       if @saving.destroy
-        format.html { redirect_to savings_url, notice: 'Saving was successfully destroyed.' }
+        format.html { redirect_to savings_url, notice: 'Saving was successfully deleted.' }
       else
-        format.html { redirect_to savings_url, notice: "Saving couldn't be destroyed." }
+        format.html { redirect_to savings_url, notice: "Saving couldn't be deleted." }
       end
     end
   end
