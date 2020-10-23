@@ -1,33 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= link_to "/users/#{session[:user_id]}" do %>
+  <span class="small-button back-button font-light-blue"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></span>
+<% end %>
+<div class="banner">
+  <h1>All <%= session[:user_name]%>'s Savings</h1>
+</div>
 
-<h1>All <%= session[:user_name]%>'s Savings</h1>
-<h2>Grand total for savings: $<%= @savings.sum(:amount) %></h2>
-<table>
-  <thead>
-    <tr>
-      <th>Author</th>
-      <th>Saving Description</th>
-      <th>Amount</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= information_rendering %>
 
-  <tbody>
-    <% @savings.each do |saving| %>
-      <tr>  
-        <td><%= saving.author.name %></td>
-        <td><%= saving.name %></td>
-        <td><%= saving.amount %></td>
-        <td><%= saving.created_at.strftime('%e-%b-%Y') %></td>
-        <td><%= link_to 'Show', saving %></td>
-        <td><%= link_to 'Edit', edit_saving_path(saving) %></td>
-        <td><%= link_to 'Delete', saving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="object-display total-amount">
+    <div class="object-info total">
+      <h2>Grand total for savings:</h2>
+    </div>
+    <div class="object-amount total-result">
+      <%= ActiveSupport::NumberHelper.number_to_currency(@savings.total_amount.round(2)) %>
+    </div>
+</div>
+<div class="object-display total-amount">
+    <div class="object-info total">
+      <h2>Total savings for <%= Date.today.strftime('%B')%>:</h2>
+    </div>
+    <div class="object-amount total-result">
+      <%= ActiveSupport::NumberHelper.number_to_currency(@savings.for_the_month.total_amount.round(2)) %>
+    </div>
+</div>
 <br>
+<div class="items-list">
+  <%= savings_rendering(@savings) %>
+</div>
 
-<%= link_to 'New Saving', '/savings/new/0' %>
+<%= link_to '/savings/new/0' do %>
+  <span class="pseudo-button green new-saving">New Saving</span>
+<% end %>
