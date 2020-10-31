@@ -12,6 +12,7 @@ class AccessControlController < ApplicationController
       redirect_to "/users/#{session[:user_id]}"
     end
   end
+
   def logout
     session.destroy
     flash.notice = 'Logged out successfully'

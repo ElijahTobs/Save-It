@@ -26,9 +26,7 @@ class SavingsController < ApplicationController
     @saving = Saving.new(saving_params)
     respond_to do |format|
       if @saving.save
-        unless group_param[:group_id].to_i.zero?
-          Groupedsaving.create(saving_id: @saving.id, group_id: group_param[:group_id])
-        end
+        Groupedsaving.create(saving_id: @saving.id, group_id: group_param[:group_id]) unless group_param[:group_id].to_i.zero?
         format.html { redirect_to savings_path, notice: 'Saving was successfully created.' }
       else
         format.html { redirect_to "/savings/new/#{group_param[:group_id]}", alert: @saving.errors.full_messages }

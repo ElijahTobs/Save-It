@@ -1,1 +1,1 @@
-json.partial! "savings/saving", saving: @saving
+json.partial! 'savings/saving', saving: @saving
