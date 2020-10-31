@@ -2,27 +2,19 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
   before_action :check_login
 
-  # GET /groups
-  # GET /groups.json
   def index
     @user = User.find(session[:user_id])
-    # @groups = @user.groups.ordered_by_name
     @groups = Group.ordered_by_name
   end
 
-  # GET /groups/1
-  # GET /groups/1.json
   def show
     @group_savings = @group.savings.includes(:groupedsavings, :groups, :author).ordered_by_most_recent
   end
 
-  # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # POST /groups
-  # POST /groups.json
   def create
     @group = Group.new(group_params)
 
@@ -35,8 +27,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # DELETE /groups/1
-  # DELETE /groups/1.json
   def destroy
     respond_to do |format|
       if @group.destroy
@@ -49,12 +39,10 @@ class GroupsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_group
     @group = Group.includes(:creator).find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def group_params
     params.require(:group).permit(:creator_id, :name, :icon)
   end

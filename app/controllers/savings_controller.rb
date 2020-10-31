@@ -10,24 +10,18 @@ class SavingsController < ApplicationController
     render 'index'
   end
 
-  # /mytransactions
   def index
     @user = User.includes(:savings, :groups).find(session[:user_id])
     @savings = @user.savings.includes(:groups, :author).ordered_by_most_recent
   end
 
-  # GET /savings/1
-  # GET /savings/1.json
   def show; end
 
-  # GET /savings/new
   def new
     @saving = Saving.new
     @group = params[:group]
   end
 
-  # POST /savings
-  # POST /savings.json
   def create
     @saving = Saving.new(saving_params)
     respond_to do |format|
@@ -42,8 +36,6 @@ class SavingsController < ApplicationController
     end
   end
 
-  # DELETE /savings/1
-  # DELETE /savings/1.json
   def destroy
     respond_to do |format|
       if @saving.destroy
@@ -56,12 +48,10 @@ class SavingsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_saving
     @saving = Saving.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def saving_params
     params.require(:saving).permit(:author_id, :name, :amount)
   end
