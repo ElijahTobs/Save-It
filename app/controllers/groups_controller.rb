@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
   def index
     @user = User.find(session[:user_id])
     # @groups = @user.groups.ordered_by_name
-    @groups = Group.all.ordered_by_name
+    @groups = Group.ordered_by_name
   end
 
   # GET /groups/1
@@ -40,9 +40,9 @@ class GroupsController < ApplicationController
   def destroy
     respond_to do |format|
       if @group.destroy
-        format.html { redirect_to groups_url, notice: 'Group was successfully deleted.' }
+        format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
       else
-        format.html { redirect_to groups_url, notice: "Group couldn't be deleted." }
+        format.html { redirect_to groups_url, notice: "Group couldn't be destroyed." }
       end
     end
   end
