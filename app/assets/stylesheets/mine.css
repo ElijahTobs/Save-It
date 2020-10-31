@@ -228,7 +228,8 @@ a{
 }
 .button-section{
   height:15vh;
-  padding-top:1%
+  padding-top:1%;
+  width: 30%;
 }
 .pseudo-button{
   display:flex;
@@ -236,7 +237,6 @@ a{
   justify-content:center;
   align-items:center;
   height:10vh;
-  width:80%;
   border:none;
   color:whitesmoke;
   text-align:center;
