@@ -45,6 +45,26 @@
 
 - This project is built with the MVP approach
 
+## Screenshots
+1.
+![First](app/assets/images/s1.png)
+
+2.
+![Second](app/assets/images/s2.png)
+
+3.
+![Third](app/assets/images/s3.png)
+
+4.
+![Fourth](app/assets/images/s4.png)
+
+5.
+![Fifth](app/assets/images/s5.png)
+
+
+## Live Demo
+[Link](https://rails-save-it.herokuapp.com/)
+
 ## 🔧 Built with <a name = "with"></a>
 
 - Ruby 2.7.1
