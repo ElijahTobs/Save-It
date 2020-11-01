@@ -1,20 +1,22 @@
-# Active Record Association (Private Events)
+# Group Your Savings
+![](https://img.shields.io/badge/Microverse-blueviolet)
+![](https://img.shields.io/badge/-Made%20with%20RubyonRails-red)
 
-[![View Code](https://img.shields.io/badge/View%20-Code-green)]()
+[![View Code](https://img.shields.io/badge/View%20-Code-green)](https://github.com/ElijahTobs/Save-It)
 [![Github Issues](https://img.shields.io/badge/GitHub-Issues-orange)]()
-[![GitHub Pull Requests](https://img.shields.io/badge/GitHub-Pull%20Requests-blue)]()
+[![GitHub Pull Requests](https://img.shields.io/badge/GitHub-Pull%20Requests-blue)](https://github.com/ElijahTobs/Save-It/pulls)
 
 <br />
 <p align="center">
-  <h3 align="center">Terminal program based on Reddit functionality<h3>
+  <h3 align="center">Ruby on Rails Capstone Project<h3>
   <p align="center">
-    <a href="https://github.com/ElijahTobs/Active-Record-Association"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ElijahTobs/Save-It"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     -
-    <a href="https://github.com/ElijahTobs/Active-Record-Association/issues">Report Bug</a>
+    <a href="">Report Bug</a>
     -
-    <a href="https://github.com/ElijahTobs/Active-Record-Association/pull">Request Feature</a>
+    <a href="https://github.com/ElijahTobs/Save-It/pulls">Request Feature</a>
     -
   </p>
 </p>
@@ -23,28 +25,44 @@
 
 <p align="center">
   <a href="#about">About</a> •
+  <a href="#with">Screenshots</a> •
   <a href="#with">Built With</a> •
+  <a href="#with">Prerequisite</a> •
   <a href="#setup">Setup</a> •
   <a href="#use">How to use</a> •
-  <a href="#authors">Authors</a>
+  <a href="#authors">Author</a>
 </p>
 
 ## About <a name = "about"></a>
 
-The goal of this project is to test the knowledge of the authors on Active Record Association by building a site similar to a private Eventbrite which allows users to create events and manage user sign-ups. Within this project, a user can create events, attend many events and an event can also be attended by many users.
+- This is the capstone project of the Microverse Ruby on Rails curriculum. This capstone project is completed as part of the Microverse remote software developement curriculum using the pair programming approach.
+- In this project I created a saving app where users can create an account with their username and add their savings. The savings can be grouped and ungrouped into the names of their choice.
+- At Sign up, users can select their preferred image for better UI and UX.
+
+- Users can also view each savings in each group.
+
+- Users can track the total amount of their savings.
+
+- This project is built with the MVP approach
 
 ## 🔧 Built with <a name = "with"></a>
 
 - Ruby 2.7.1
 - Rails 5.2.4.3
+- RSpec
+- HTML
+- CSS
 
+## 🔧 Prerequisite <a name = "with"></a>
+- Ruby 2.7.1
+- Rails 5.2.4.3
 
 ## 🛠 Setup <a name = "setup"></a>
 
 ```
 $ cd <folder>
-$ git clone
-$ cd Active-Record-Association
+$ git clone https://github.com/ElijahTobs/Save-It
+$ cd Save-It
 $ bundle install
 $ rails db:migrate
 ```
@@ -54,12 +72,13 @@ $ rails db:migrate
 To create or/and attend events, run the commands on rails console:
 
 ```
-$ rails console
+$ rails server
+$ Open http://localhost:3000/ in your browser.
 ...
 
 ```
 
-## ✒️ Authors <a name = "authors"></a>
+## ✒️ Author <a name = "authors"></a>
 
 👤 **Elijah Ayandokun**
 
@@ -68,24 +87,17 @@ $ rails console
 - Linkedin: [linkedin](https://linkedin.com/in/ayandokunelijah)
 
 
-👤 **Lucas Delbel**
-
-- Github: [@ldelbel](https://github.com/ldelbel)
-- Twitter: [@delbel_lucas](https://twitter.com/delbel_lucas)
-- Linkedin: [lucasdelbel](https://www.linkedin.com/in/lucasdelbel/)
-
-
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/ElijahTobs/Active-Record-Association/issues).
 
 ## 👍 Show your support
 
 Give a ⭐️ if you like this project!
 
-## :clap: Acknowledgements
+##  Acknowledgements
 
 - Microverse: [@microverse](https://www.microverse.org/)
 
+- Design by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
