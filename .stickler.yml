@@ -1,0 +1,12 @@
+linters:
+    flake8:
+    csslint:
+
+files:
+    ignore:
+        - 'src/generated/*'
+        - 'webroot/bower_components/*'
+        - 'app/assets/stylesheets/**'
+    
+fixers:
+    enable: true
